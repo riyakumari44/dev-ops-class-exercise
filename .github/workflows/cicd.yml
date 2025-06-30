@@ -49,4 +49,10 @@ jobs:
         docker build -t ${{ secrets.DOCKER_USERNAME }}/devops-app:latest .
         docker push ${{ secrets.DOCKER_USERNAME }}/devops-app:latest
 
-        
+    - name: Deploy to Azure Web App
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: "devops-exe"
+        publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
+        images: ${{ secrets.DOCKER_USERNAME }}/devops-app:latest
+       
