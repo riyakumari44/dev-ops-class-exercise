@@ -52,7 +52,7 @@ jobs:
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
       with:
-        app-name: "devops-exe""
+        app-name: "devops-exe"
         publish-profile: ${{ secrets.AUZER_PUBLISH }}
         images: ${{ secrets.DOCKER_USERNAME }}/devops-app:latest
        
